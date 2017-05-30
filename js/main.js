@@ -1,3 +1,5 @@
+"use strict";
+
 var Name = document.getElementById('jsName');
 var InputSearch= document.getElementById('jsSearch');
 var UserPicture = document.getElementById('jsUserPicture');
@@ -11,8 +13,11 @@ function searchUser(){
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText);
       Name.innerHTML = data.name;
+      Name.style.color= "blue";
       NumberRepo.innerHTML= data.public_repos;
+      NumberRepo.style.color= "blue";
       UserPicture.innerHTML = '<img src=" '+ data.avatar_url +' ">';
+      UserPicture.style.height="50px";
     } else {
       console.log('Error del servidor, puede que el archivo no exista o que se haya producido un error interno en el servidor');
     }
